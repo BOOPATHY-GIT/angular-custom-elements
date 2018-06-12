@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Button Test Page</title>
+  <script src="script.js"></script>
+  <script src="elements.js"></script>
+</head>
+
+<body>
+  <my-button label="Show Alert Message!"></my-button>
+
+  <p></p>
+
+  <div id="message-container"></div>
+
+  <script>
+    const button = document.querySelector('my-button');
+    const msgContainer = document.querySelector('#message-container');
+    button.addEventListener('action', (event) => {
+      console.log(`"action" emitted: ${event.detail}`);
+      button.setAttribute("label", "Show Next Alert Message!");
+      msgContainer.innerHTML += `<my-alert message="Here is a message #${event.detail} created dynamically using ng elements!!!"></my-alert>`;
+    });
+
+  </script>
+</body>
+
+</html>
